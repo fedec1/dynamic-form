@@ -8,8 +8,8 @@ const viewsPath = path.join(__dirname, '../templates/views')
 const partialsPath = path.join(__dirname, '../templates/partials')
 
 
-app.set('views', viewsPath)
-app.set('view engine', 'handlebars')
+app.set('views', viewsPath) // setta la cartella delle views 
+app.set('view engine', 'hbs') // tipo di template engine
 hbs.registerPartials(partialsPath) // registrazione dei partials
 
 port = process.env.PORT // porta presa da config
