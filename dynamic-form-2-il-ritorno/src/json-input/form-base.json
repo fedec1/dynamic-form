@@ -1,0 +1,15 @@
+{
+    "titolo": "Form di Registrazione",
+    "campi": [
+      { "nome": "Nome", "type": "text", "required": true },
+      { "nome": "Email", "type": "email", "required": true },
+      { "nome": "Età", "type": "number", "required": false, "min": 1, "max": 120 },
+      { "nome": "Username", "type": "text", "required": false },
+      {
+        "nome": "Gender",
+        "type": "select",
+        "required": true,
+        "options": ["Maschio", "Femmina", "Altro"]
+      }
+    ]
+  }
