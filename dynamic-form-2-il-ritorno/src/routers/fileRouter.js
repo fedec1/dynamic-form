@@ -42,8 +42,15 @@ router.post('/createFormFile', (req, res, next) => {
 
         let boolReq = false
         // per qualche motivo
-        console.log(body.campi)
-        body.campi.some (campo =>{
+        //console.log(body.campi)
+        for(let campo of body.campi) {
+            if(!campo.nome || !campo.type){
+                res.status(400).send("Nome o type di un campo mancante!")
+                return
+            }
+        }
+
+        /* body.campi.forEach (campo =>{
             console.log('ciao')
             if(!campo.nome || !campo.type){
                 res.status(400).send("Nome o type di un campo mancante!").end()
@@ -51,12 +58,12 @@ router.post('/createFormFile', (req, res, next) => {
                // console.log({res})
                 return true
             }
-            return false
-        })
+            // return false
+        }) */
 
-        if(boolReq) {
+        /* if(boolReq) {
             return
-        }
+        } */
         
         res.render('dynamicForm', {title: body.title, campi:body.campi}, (err, html) => {
             formGenerato = html
