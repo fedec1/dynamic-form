@@ -2,7 +2,9 @@
     "title":"ciao",
     "campi": [
     
-    {"nome":"pappo"}
+    {"nome":"pappo"},
+    {"nome":"gigi"}
+
     
     ]
     }

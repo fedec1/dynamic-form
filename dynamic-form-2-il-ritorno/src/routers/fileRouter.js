@@ -40,14 +40,23 @@ router.post('/createFormFile', (req, res, next) => {
             return
         }
 
+        let boolReq = false
+        // per qualche motivo
         console.log(body.campi)
-        body.campi.some(campo =>{
+        body.campi.some (campo =>{
+            console.log('ciao')
             if(!campo.nome || !campo.type){
                 res.status(400).send("Nome o type di un campo mancante!").end()
+                boolReq = true
+               // console.log({res})
                 return true
             }
             return false
         })
+
+        if(boolReq) {
+            return
+        }
         
         res.render('dynamicForm', {title: body.title, campi:body.campi}, (err, html) => {
             formGenerato = html
