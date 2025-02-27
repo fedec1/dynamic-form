@@ -28,6 +28,7 @@ h1 {
 
 pre {
     background-color: black;
+    white-space: pre-wrap;
     color :#ccc;
     width: 60%;
 }

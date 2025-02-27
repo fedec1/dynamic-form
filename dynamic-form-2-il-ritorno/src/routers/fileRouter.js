@@ -24,8 +24,8 @@ router.get('/fetchJsonFiles', (req, res, next) => {
 router.post('/createFormFile', (req, res, next) => {
     fs.readFile(path.join(__dirname,'../json-input', req.body.file), 'utf8', (err, data) => {
         if (err) {
-          console.error(err);
-          return;
+          console.error(err)
+          return
         }
 
         try{ 
@@ -39,6 +39,15 @@ router.post('/createFormFile', (req, res, next) => {
             res.status(400).send("Titolo o campi mancanti!")
             return
         }
+
+        console.log(body.campi)
+        body.campi.some(campo =>{
+            if(!campo.nome || !campo.type){
+                res.status(400).send("Nome o type di un campo mancante!").end()
+                return true
+            }
+            return false
+        })
         
         res.render('dynamicForm', {title: body.title, campi:body.campi}, (err, html) => {
             formGenerato = html
