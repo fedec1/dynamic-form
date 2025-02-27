@@ -1,0 +1,12 @@
+<br>
+<label for="{{nome}}">{{nome}}</label>
+<select 
+    name="{{nome}}{{#if multiple}}[]{{/if}}" 
+    id="{{nome}}"
+    {{#if required}}required{{/if}}
+    {{#if multiple}}multiple{{/if}}
+>
+    {{#each options}}
+        <option value="{{this}}">{{this}}</option>
+    {{/each}}
+</select>

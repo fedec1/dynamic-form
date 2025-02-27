@@ -1,5 +1,5 @@
 {
-    "titolo": "Form di Registrazione",
+    "title": "Form di Registrazione",
     "campi": [
       { "nome": "Nome", "type": "text", "required": true },
       { "nome": "Email", "type": "email", "required": true },

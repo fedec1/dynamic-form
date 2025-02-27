@@ -1,0 +1,42 @@
+html, body {
+    height: 100%;
+}
+
+html {
+    margin: auto;
+}
+
+body{
+    background-color: #312e2e;
+}
+
+p{
+    color: beige;
+}
+
+label {
+    color: blanchedalmond;
+}
+
+h1 {
+    color: burlywood;
+    margin: auto;
+}
+.submitButton{
+    display: block;
+}
+
+pre {
+    background-color: black;
+    color :#ccc;
+    width: 60%;
+}
+
+textarea {
+    width: 60%;
+    height: 150px;
+    padding: 12px 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+  }

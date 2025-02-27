@@ -1,13 +1,47 @@
 <html>
     <head>
-        
+        <link rel="stylesheet" href="/css/index-style.css">
     </head>
     <body>
         <h1>Dynamic Form</h1>
+        <p>Esempio di Json da inviare per la creazione: </p>
+        <pre>
+{
+  "title": "ciao",
+  "campi": [
+    { "nome": "Pippo", "type": "text", "required": true },
+    { "nome": "Email", "type": "email", "required": true },
+    { "nome": "Età", "type": "number", "required": false, "min": 1, "max" : 120 },
+    {"nome" : "Username", "type":"text", "required":false},
+    {"nome" : "campo", "type":"text", "required":false},
+    { 
+      "nome": "Sesso", 
+      "type": "select", 
+      "required": true,
+      "options": ["Maschio", "Femmina", "Altro"]
+    },
+    { 
+      "nome": "Interessi", 
+      "type": "select", 
+      "required": true,
+      "multiple": true,
+      "options": ["Musica", "Sport", "Lettura", "Cinema"]
+    }
+  ]
+}
+        </pre>
 
-        <form action="/createForm" name="jsonpass" method="post">
-            <textarea id="jsonsend" class="text" cols="86" rows ="20" name="jsonsend"></textarea>
-            <input type="submit" value="JsonForm" class="submitButton">
+        <form action="/createForm" name="create-form" method="post">
+            <textarea id="jsonForm" class="text" cols="40" rows="10" name="jsonForm"></textarea>
+            <input type="submit" value="Crea Form" class="submitButton">
         </form>
+
+        <form action="/createFormFile" name="create-form-file"  method="post">
+            <label for="selezionaFile">Scegli un file JSON:</label>
+            <select id="selezionaFile" name="file">
+            </select>
+            <input type="submit" value="Crea Form" class="submitButton">
+        </form>
+        <script src="js/home.js"></script>
     </body>
 </html>

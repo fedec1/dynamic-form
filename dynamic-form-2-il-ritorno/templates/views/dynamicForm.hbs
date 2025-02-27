@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/index-style.css">
+    </head>
+    <body>
+        <h1>{{title}}</h1>
+        <form action="/submit" name="form" method="post">
+            {{#each campi}}
+                {{#if (eqSelect type)}}
+                    {{>select}}
+                {{else}}
+                    {{>input}}
+                {{/if}}
+            {{/each}}
+        </form>
+    </body>
+</html>
