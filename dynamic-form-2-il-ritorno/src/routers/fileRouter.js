@@ -33,12 +33,13 @@ router.post('/createFormFile', (req, res, next) => {
         try{ 
             body = JSON.parse(data)
         } catch(e) {
-            res.status(400).send("JSON invalido!")
+            //res.status(400).send("JSON invalido!")
+            res.render('error', {error : "JSON invalido!"})
             return
         }
         //console.log(body)
         if(!body.campi || !body.title){
-            res.status(400).send("Titolo o campi mancanti!")
+            res.render('error', {error : "Title o campi mancanti!"})
             return
         }
 
@@ -47,7 +48,7 @@ router.post('/createFormFile', (req, res, next) => {
         //console.log(body.campi)
         for(let campo of body.campi) {
             if(!campo.nome || !campo.type){
-                res.status(400).send("Nome o type di un campo mancante!")
+                res.render('error', {error : "Nome o type di un titolo mancanti!"})
                 return
             }
         }
@@ -82,10 +83,11 @@ router.post('/createFormFile', (req, res, next) => {
 })
 
 router.post('/submit', (req, res, next) => {
-    res.send(req.body)
+    //res.send(req.body)
     fs.writeFile(path.join(__dirname,'../json-output', Date.now() + '-' + req.body.title + '.json')  , JSON.stringify(req.body, null, 2) , (err) => {
         if(err) throw err
     })
+    res.render('success')
 })
 
 module.exports = router
