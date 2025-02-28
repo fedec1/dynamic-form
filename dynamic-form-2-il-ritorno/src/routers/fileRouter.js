@@ -83,7 +83,7 @@ router.post('/createFormFile', (req, res, next) => {
 
 router.post('/submit', (req, res, next) => {
     res.send(req.body)
-    fs.writeFile(path.join(__dirname,'../json-output', req.body.title + '-' + Date.now() + '.json')  , JSON.stringify(req.body, null, 2) , (err) => {
+    fs.writeFile(path.join(__dirname,'../json-output', Date.now() + '-' + req.body.title + '.json')  , JSON.stringify(req.body, null, 2) , (err) => {
         if(err) throw err
     })
 })
