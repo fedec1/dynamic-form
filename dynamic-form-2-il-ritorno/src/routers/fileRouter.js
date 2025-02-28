@@ -6,6 +6,8 @@ const router = new express.Router()
 
 let formGenerato = null
 
+
+
 const inputJsonPath = path.join(__dirname, '../json-input')
 
 router.get('/fetchJsonFiles', (req, res, next) => {
@@ -77,6 +79,13 @@ router.post('/createFormFile', (req, res, next) => {
 
       })
     
+})
+
+router.post('/submit', (req, res, next) => {
+    res.send(req.body)
+    fs.writeFile(path.join(__dirname,'../json-output', req.body.title + '-' + Date.now() + '.json')  , JSON.stringify(req.body, null, 2) , (err) => {
+        if(err) throw err
+    })
 })
 
 module.exports = router
