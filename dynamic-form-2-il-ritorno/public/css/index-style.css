@@ -55,3 +55,12 @@ textarea {
   form {
     margin-left: 10px;
   }
+
+  fieldset {
+    width: 50%;
+  }
+
+  #error {
+    color: red;
+    font-weight: 400;
+  }

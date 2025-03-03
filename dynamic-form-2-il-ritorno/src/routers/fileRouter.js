@@ -34,12 +34,12 @@ router.post('/createFormFile', (req, res, next) => {
             body = JSON.parse(data)
         } catch(e) {
             //res.status(400).send("JSON invalido!")
-            res.render('error', {error : "JSON invalido!"})
+            res.render('index', {error : "JSON invalido!"})
             return
         }
         //console.log(body)
         if(!body.campi || !body.title){
-            res.render('error', {error : "Title o campi mancanti!"})
+            res.render('index', {error : "Title o campi mancanti!"})
             return
         }
 
@@ -48,7 +48,7 @@ router.post('/createFormFile', (req, res, next) => {
         //console.log(body.campi)
         for(let campo of body.campi) {
             if(!campo.nome || !campo.type){
-                res.render('error', {error : "Nome o type di un titolo mancanti!"})
+                res.render('index', {error : "Nome o type di un titolo mancanti!"})
                 return
             }
         }
