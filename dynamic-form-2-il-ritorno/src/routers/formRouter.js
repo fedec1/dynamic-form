@@ -1,5 +1,6 @@
 const express = require('express')
-
+const fs = require('fs')
+const path = require('path')
 const router = new express.Router()
 
 let formGenerato = null
@@ -10,33 +11,29 @@ router.post('/createForm', (req, res, next) => {
     try{
         body = JSON.parse(req.body.jsonForm)
     } catch(e) {
-        res.status(400).send("JSON invalido!")
+        res.render('index', {error : "JSON invalido!"})
         return
     }
 
     // controllo sull'esistenza del titolo e dei campi
     if(!body.campi || !body.title){
-        res.status(400).send("Titolo o campi mancanti!")
+        res.render('index', {error : "Title o campi mancanti!"})
         return
     }
 
     // controllo sull'esistenza di un nome e un type per ogni campo
-    body.campi.forEach(campo =>{
+    for(let campo of body.campi) {
         if(!campo.nome || !campo.type){
-            res.status(400).send("Nome o type di un campo mancante!")
+            res.render('index', {error : "Nome o type di un titolo mancanti!"})
+            return
         }
-    })
+    }
     
     // console.log(req.body.jsonForm.title)
-    res.render('dynamicForm', {title: body.title, campi:body.campi}, (err, html) => {
-        formGenerato = html
-        //console.log(formGenerato)
-                res.send(formGenerato)
-        if (err) {
-            console.log(err)
-            return res.status(500).send("Errore nella generazione del form");
-          }    
-    })   
+    fs.writeFile(path.join(__dirname,'../json-input', body.title + '.json')  , JSON.stringify(body, null, 2) , (err) => {
+            if(err) throw err
+        })
+        res.render('successpreset')   
 })
 
 
