@@ -1,0 +1,25 @@
+{
+  "title": "formBello",
+  "campi": [
+    {
+      "nome": "numeroOrdine",
+      "type": "text",
+      "required": true
+    },
+    {
+      "nome": "da",
+      "type": "text",
+      "required": true
+    },
+    {
+      "nome": "a",
+      "type": "text",
+      "required": true
+    },
+    {
+      "nome": "data",
+      "type": "date",
+      "required": true
+    }
+  ]
+}
