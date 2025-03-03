@@ -9,11 +9,16 @@
                 {{#if (eqSelect type)}}
                     {{>select}}
                 {{else}}
+                    {{#if (eqCheck type)}}
+                        {{>checkbox}}
+                    {{else}}
                     {{>input}}
+                    {{/if}}
                 {{/if}}
             {{/each}}
             <input type="hidden" name="title" value="{{title}}">
             <input type="submit" value="send" class="submitButton">
         </form>
+        <script src="js/form.js"></script>
     </body>
 </html>

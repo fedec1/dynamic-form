@@ -13,6 +13,7 @@ app.set('view engine', 'hbs') // tipo di template engine
 hbs.registerPartials(partialsPath) // registrazione dei partials
 
 hbs.registerHelper('eqSelect', (type) => type == "select")
+hbs.registerHelper('eqCheck', (type) => type == "checkbox")
 
 port = process.env.PORT // porta presa da config
 

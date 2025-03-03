@@ -14,7 +14,7 @@
       },
       { 
         "nome": "Interessi", 
-        "type": "select", 
+        "type": "checkbox", 
         "required": true,
         "multiple": true,
         "options": ["Musica", "Sport", "Lettura", "Cinema"]

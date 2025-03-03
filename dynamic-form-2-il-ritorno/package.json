@@ -6,7 +6,8 @@
     "start": "node src/index.js",
     "dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
     "del" : "node src/utils/rimozionedimassa.js",
-    "delMY" : "node src/utils/rimozione-filtrata.js"
+    "delMY" : "node src/utils/rimozione-filtrata.js",
+    "delName" : "node src/utils/rimozione-per-nome.js"
   },
   "author": "",
   "license": "ISC",

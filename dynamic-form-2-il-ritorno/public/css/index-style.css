@@ -14,16 +14,26 @@ p{
     color: beige;
 }
 
+li {
+    color: beige;
+}
+
 label {
     color: blanchedalmond;
+    margin-top: 3px;
+}
+
+input {
+    margin-bottom : 4px
 }
 
 h1 {
     color: burlywood;
-    margin: auto;
+    margin-left: 10px;
 }
 .submitButton{
     display: block;
+    margin-top: 4px;
 }
 
 pre {
@@ -40,4 +50,8 @@ textarea {
     border: 2px solid #ccc;
     border-radius: 4px;
     background-color: #f8f8f8;
+  }
+
+  form {
+    margin-left: 10px;
   }

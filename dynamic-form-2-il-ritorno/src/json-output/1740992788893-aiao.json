@@ -1,12 +1,11 @@
 {
+  "0": "Maschio",
+  "1": "Musica",
+  "2": "Sport",
   "Pippo": "qeawr",
   "Email": "sadasf@mail.com",
-  "Età": "65",
+  "Età": "2",
   "Username": "ooo",
   "campo": "3434",
-  "Sesso": "Maschio",
-  "Interessi": [
-    "Musica"
-  ],
   "title": "aiao"
 }
