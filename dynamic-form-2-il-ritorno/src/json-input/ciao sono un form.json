@@ -1,0 +1,25 @@
+{
+  "title": "ciao sono un form",
+  "campi": [
+    {
+      "nome": "numeroOrdine",
+      "type": "text",
+      "required": true
+    },
+    {
+      "nome": "data",
+      "type": "date",
+      "required": true
+    },
+    {
+      "nome": "Tags",
+      "type": "checkbox",
+      "options": [
+        "Musica",
+        "Sport",
+        "Lettura",
+        "Cinema"
+      ]
+    }
+  ]
+}
