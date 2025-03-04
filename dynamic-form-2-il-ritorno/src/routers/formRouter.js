@@ -5,6 +5,10 @@ const router = new express.Router()
 
 let formGenerato = null
 
+const inputTypes = ["checkbox", "date", "datetime-local", "email", "file", "image", "month", "number", 
+    "password", "range", "tel", "text", "url", "week", "select"
+]
+
 router.post('/createForm', (req, res, next) => {
 
     // controlo sulla validità del json
@@ -21,10 +25,20 @@ router.post('/createForm', (req, res, next) => {
         return
     }
 
+    if(!Array.isArray(body.campi)){
+        res.render('index', {error : "Campi non è un array!"})
+        return
+    }
+
     // controllo sull'esistenza di un nome e un type per ogni campo
     for(let campo of body.campi) {
         if(!campo.nome || !campo.type){
             res.render('index', {error : "Nome o type di un titolo mancanti!"})
+            return
+        }
+
+        if(!inputTypes.includes(campo.type)){
+            res.render('index', {error : "Type di un campo invalido: " + campo.type})
             return
         }
 

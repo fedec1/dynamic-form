@@ -6,7 +6,9 @@ const router = new express.Router()
 
 let formGenerato = null
 
-
+const inputTypes = ["checkbox", "date", "datetime-local", "email", "file", "image", "month", "number", 
+    "password", "range", "tel", "text", "url", "week", "select"
+]
 
 const inputJsonPath = path.join(__dirname, '../json-input')
 
@@ -43,12 +45,22 @@ router.post('/createFormFile', (req, res, next) => {
             return
         }
 
-        let boolReq = false
-        // per qualche motivo
+        if(!Array.isArray(body.campi)){
+            res.render('index', {error : "Campi non è un array!"})
+            return
+        }
+
+        
+
         //console.log(body.campi)
         for(let campo of body.campi) {
             if(!campo.nome || !campo.type){
                 res.render('index', {error : "Nome o type di un campo mancanti!"})
+                return
+            }
+
+            if(!inputTypes.includes(campo.type)){
+                res.render('index', {error : "Type di un campo invalido: " + campo.type})
                 return
             }
 
