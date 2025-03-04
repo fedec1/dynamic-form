@@ -4,6 +4,7 @@
 tArea = document.getElementById('jsonForm')
 preCode = document.getElementById('showCode')
 example = document.getElementById('example')
+error = document.getElementById('error')
 
 function highlightJS() {
     document.querySelectorAll('pre code').forEach((el) => {
@@ -104,6 +105,15 @@ document.addEventListener("DOMContentLoaded", function () {
             selezione.appendChild(option);
         });
     })
+})
+
+document.addEventListener("DOMContentLoaded", function(){
+    if (error.textContent) {
+        window.scrollTo(0, document.body.scrollHeight)
+        setTimeout(() => {
+            window.location = "/";
+         }, 2000)
+    }
 })
 
 hljs.highlightElement(example)
