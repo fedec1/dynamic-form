@@ -1,6 +1,8 @@
 const app = require('./app')
 const path = require('path')
 const hbs = require('hbs')
+const cron = require('node-cron');
+const { exec } = require('child_process');
 //const hljs = require('highlight.js/lib/core')
 
 
@@ -21,3 +23,10 @@ hbs.registerHelper('eqCheck', (type) => type == "checkbox")
 port = process.env.PORT // porta presa da config
 
 app.listen(port, () => console.log(`Server running on port ${port}`)) // creazione server
+
+cron.schedule('* * * * *', () => {
+    exec('npm run scheDel', function(err,stdout,stderr) {
+        console.log(stdout);
+    })
+    console.log("Eliminazione...");
+  })

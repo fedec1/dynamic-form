@@ -4,10 +4,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "env-cmd -f ./config/dev.env nodemon src/index.js",
+    "dev": "env-cmd -f ./config/dev.env nodemon --ignore ./src/json-output/ src/index.js",
     "del": "node src/utils/rimozionedimassa.js",
     "delMY": "node src/utils/rimozione-filtrata.js",
-    "delName": "node src/utils/rimozione-per-nome.js"
+    "delName": "node src/utils/rimozione-per-nome.js",
+    "scheDel" : "node src/utils/rimozione-schedulata.js"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +21,7 @@
     "express": "^4.21.2",
     "hbs": "^4.2.0",
     "highlight.js": "^11.11.1",
+    "node-cron": "^3.0.3",
     "path": "^0.12.7"
   }
 }
