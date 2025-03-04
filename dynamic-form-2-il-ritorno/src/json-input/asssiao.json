@@ -1,0 +1,10 @@
+{
+  "title": "asssiao",
+  "campi": [
+    {
+      "nome": "Pippo",
+      "type": "text",
+      "required": true
+    }
+  ]
+}

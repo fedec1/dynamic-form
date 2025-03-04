@@ -1,6 +1,8 @@
 <html>
     <head>
         <link rel="stylesheet" href="/css/index-style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/paraiso-dark.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     </head>
     <body>
         <h1>DynForm</h1>
@@ -11,7 +13,7 @@
           <li>Utilizzare come type <i>select</i> se si richiede una singola scelta tra più opzioni</li>
           <li>Utilizzare come type <i>checkbox</i> se si richiedono scelte multiple</li>
         </ul>
-        <pre>
+        <pre id="example"><code class="language-json">
 {
     "title": "aiao",
     "campi": [
@@ -33,10 +35,14 @@
       }
     ]
   }
-        </pre>
+        </code></pre>
 
        <form action="/createForm" name="create-form" method="post">
-            <textarea id="jsonForm" class="text" cols="40" rows="10" name="jsonForm"></textarea>
+            <div id="coder">
+              <pre id="preCode"><code class="language-json" id="showCode"></code></pre>
+              <textarea id="jsonForm" wrap="soft" name="jsonForm" spellcheck="false"></textarea>  
+            </div>
+
             <input type="submit" value="Crea Form" class="submitButton">
         </form>
 

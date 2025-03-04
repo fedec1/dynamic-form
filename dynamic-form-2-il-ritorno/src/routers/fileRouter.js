@@ -48,7 +48,7 @@ router.post('/createFormFile', (req, res, next) => {
         //console.log(body.campi)
         for(let campo of body.campi) {
             if(!campo.nome || !campo.type){
-                res.render('index', {error : "Nome o type di un titolo mancanti!"})
+                res.render('index', {error : "Nome o type di un campo mancanti!"})
                 return
             }
         }
@@ -87,7 +87,7 @@ router.post('/submit', (req, res, next) => {
     fs.writeFile(path.join(__dirname,'../json-output', Date.now() + '-' + req.body.title + '.json')  , JSON.stringify(req.body, null, 2) , (err) => {
         if(err) throw err
     })
-    res.render('success')
+    res.render('success', {message : "Dati salvati con successo!"})
 })
 
 module.exports = router

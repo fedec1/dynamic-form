@@ -33,7 +33,7 @@ router.post('/createForm', (req, res, next) => {
     fs.writeFile(path.join(__dirname,'../json-input', body.title + '.json')  , JSON.stringify(body, null, 2) , (err) => {
             if(err) throw err
         })
-        res.render('successpreset')   
+        res.render('success', {message : "JSON salvato con successo!"})   
 })
 
 

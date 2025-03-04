@@ -1,6 +1,8 @@
 const app = require('./app')
 const path = require('path')
 const hbs = require('hbs')
+//const hljs = require('highlight.js/lib/core')
+
 
 // salvo le directory public, views e partials in una variabile
 
@@ -14,6 +16,7 @@ hbs.registerPartials(partialsPath) // registrazione dei partials
 
 hbs.registerHelper('eqSelect', (type) => type == "select")
 hbs.registerHelper('eqCheck', (type) => type == "checkbox")
+//hljs.registerLanguage("json", require('highlight.js/lib/languages/json'))
 
 port = process.env.PORT // porta presa da config
 
