@@ -27,6 +27,34 @@ router.post('/createForm', (req, res, next) => {
             res.render('index', {error : "Nome o type di un titolo mancanti!"})
             return
         }
+
+        if(campo.min){
+            if(typeof(campo.min) !== 'number'){
+                res.render('index', {error : "Il campo min non è un numero!"})
+                return
+            }
+        }
+
+        if(campo.max){
+            if(typeof(campo.max) !== 'number'){
+                res.render('index', {error : "Il campo max non è un numero!"})
+                return
+            }
+        }
+
+        if(campo.required){
+            if(typeof(campo.required) !== 'boolean'){
+                res.render('index', {error : "Il campo required deve essere true o false!"})
+                return
+            }
+        }
+
+        if(campo.options){
+            if(!Array.isArray(campo.options)){
+                res.render('index', {error : "Il campo options deve essere un array!"})
+                return
+            }
+        }
     }
     
     // console.log(req.body.jsonForm.title)

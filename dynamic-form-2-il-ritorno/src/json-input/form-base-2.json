@@ -1,5 +1,5 @@
 {
-    "title": "aiao",
+    "title": "Form Base 2",
     "campi": [
       { "nome": "Pippo", "type": "text", "required": true },
       { "nome": "Email", "type": "email", "required": true },
