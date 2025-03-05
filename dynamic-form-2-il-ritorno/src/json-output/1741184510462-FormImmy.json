@@ -1,0 +1,20 @@
+{
+  "Email": "sadasf@mail.com",
+  "EtÃ ": "4",
+  "Username": "ooo",
+  "campo": "3434",
+  "Sesso": "Maschio",
+  "Interessi": [
+    "Musica"
+  ],
+  "title": "FormImmy",
+  "files": [
+    {
+      "fieldname": "Immagine",
+      "originalname": "dispensa.png",
+      "encoding": "7bit",
+      "mimetype": "image/png",
+      "size": 10926
+    }
+  ]
+}

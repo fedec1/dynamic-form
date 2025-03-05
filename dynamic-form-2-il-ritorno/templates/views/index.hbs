@@ -37,7 +37,7 @@
   }
         </code></pre>
 
-       <form action="/createForm" name="create-form" method="post">
+       <form action="/createForm" name="create-form" enctype="multipart/form-data" method="post">
             <div id="coder">
               <pre id="preCode"><code class="language-json" id="showCode"></code></pre>
               <textarea id="jsonForm" wrap="soft" name="jsonForm" spellcheck="false"></textarea>  
@@ -46,7 +46,7 @@
             <input type="submit" value="Crea Form" class="submitButton">
         </form>
 
-        <form action="/createFormFile" name="create-form-file"  method="post">
+        <form action="/createFormFile" name="create-form-file"  enctype="multipart/form-data" method="post">
             <label for="selezionaFile">Scegli un file JSON:</label>
             <select id="selezionaFile" name="file">
             </select>

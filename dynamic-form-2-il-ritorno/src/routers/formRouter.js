@@ -2,15 +2,18 @@ const express = require('express')
 const fs = require('fs')
 const path = require('path')
 const router = new express.Router()
+const multer  = require('multer')
 
 let formGenerato = null
+
+let getFields = multer()
 
 const inputTypes = ["checkbox", "date", "datetime-local", "email", "file", "image", "month", "number", 
     "password", "range", "tel", "text", "url", "week", "select"
 ]
 
-router.post('/createForm', (req, res, next) => {
-
+router.post('/createForm', getFields.none(), (req, res, next) => {
+    console.log(req.body)
     // controlo sulla validità del json
     try{
         body = JSON.parse(req.body.jsonForm)
@@ -69,6 +72,8 @@ router.post('/createForm', (req, res, next) => {
                 return
             }
         }
+
+        
     }
     
     // console.log(req.body.jsonForm.title)

@@ -8,7 +8,7 @@
     "del": "node src/utils/rimozionedimassa.js",
     "delMY": "node src/utils/rimozione-filtrata.js",
     "delName": "node src/utils/rimozione-per-nome.js",
-    "scheDel" : "node src/utils/rimozione-schedulata.js"
+    "scheDel": "node src/utils/rimozione-schedulata.js"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +21,7 @@
     "express": "^4.21.2",
     "hbs": "^4.2.0",
     "highlight.js": "^11.11.1",
+    "multer": "^1.4.5-lts.1",
     "node-cron": "^3.0.3",
     "path": "^0.12.7"
   }

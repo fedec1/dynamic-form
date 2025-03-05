@@ -3,6 +3,8 @@ const path = require('path')
 const hbs = require('hbs')
 const cron = require('node-cron');
 const { exec } = require('child_process');
+const multer  = require('multer')
+
 //const hljs = require('highlight.js/lib/core')
 
 
@@ -18,6 +20,7 @@ hbs.registerPartials(partialsPath) // registrazione dei partials
 
 hbs.registerHelper('eqSelect', (type) => type == "select")
 hbs.registerHelper('eqCheck', (type) => type == "checkbox")
+hbs.registerHelper('eqFile', (type) => type == "file")
 //hljs.registerLanguage("json", require('highlight.js/lib/languages/json'))
 
 port = process.env.PORT // porta presa da config

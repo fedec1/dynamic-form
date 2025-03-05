@@ -1,8 +1,11 @@
 const fs = require('fs')
 const path = require('path')
 const express = require('express')
-
+const multer  = require('multer')
 const router = new express.Router()
+const upload = multer({ dest: path.join(__dirname,'../../public/data/uploads/') })
+let getFields = multer()
+
 
 let formGenerato = null
 
@@ -25,7 +28,8 @@ router.get('/fetchJsonFiles', (req, res, next) => {
 })
 
 
-router.post('/createFormFile', (req, res, next) => {
+router.post('/createFormFile', getFields.none(), (req, res, next) => {
+    console.log(req)
     fs.readFile(path.join(__dirname,'../json-input', req.body.file), 'utf8', (err, data) => {
         if (err) {
           console.error(err)
@@ -91,6 +95,8 @@ router.post('/createFormFile', (req, res, next) => {
                     return
                 }
             }
+
+            
         }
 
         /* body.campi.forEach (campo =>{
@@ -122,8 +128,22 @@ router.post('/createFormFile', (req, res, next) => {
     
 })
 
-router.post('/submit', (req, res, next) => {
-    //res.send(req.body)
+
+// da gestire il caricamento di file multipli
+router.post('/submit', getFields.any(), (req, res) => {
+    console.log(req.files)
+    if(req.files){
+    let buffer = Buffer.from(req.files[0].buffer)
+    let filePath = path.join(__dirname,'../../public/data/uploads/', Date.now() + '-' + req.body.title + '-' + req.files[0].originalname)
+    fs.writeFile(filePath, buffer, (err) => {
+        if (err) throw err;
+        console.log("File salvato!", filePath);
+      })
+    delete req.files[0].buffer
+    req.body['files'] = req.files
+    req.body['files'][0].originalname = filePath
+    }
+
     fs.writeFile(path.join(__dirname,'../json-output', Date.now() + '-' + req.body.title + '.json')  , JSON.stringify(req.body, null, 2) , (err) => {
         if(err) throw err
     })

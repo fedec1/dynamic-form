@@ -1,0 +1,10 @@
+{
+  "title": "sono un json",
+  "campi": [
+    {
+      "nome": "nome",
+      "type": "text",
+      "required": true
+    }
+  ]
+}
